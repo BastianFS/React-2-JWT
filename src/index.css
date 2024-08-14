@@ -1,0 +1,118 @@
+.montserrat-variable {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  font-family: "Montserrat";
+  font-weight: 500;
+}
+.bigForm{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto;
+}
+.form{
+  padding: 50px;
+  display: grid;
+  
+}
+.formGroup{
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: center;
+}
+.formGroup input{
+  padding: 5px;
+  font-style: italic;
+  font-weight: 100;
+}
+.formGroup label{
+  padding: 5px;
+}
+.btnEnviar{
+  font-size: larger;
+  padding: 10px;
+  position: absolute;
+  transform: translateX(50%);
+  background-color: rgb(7, 24, 217);
+  border: 2px, groove;
+  color: white;
+  border-radius: 3%;
+}
+.btnContainer{
+  position: relative;
+  padding: 20px;
+}
+.error{
+  background-color: red;
+  padding: 20px;
+  color: white;
+  width: 200px;
+  border: 2px,solid;
+  border-radius: 3%;
+  transform: translateX(15%);
+}
+.errorContainer{
+  padding: 20px;
+}
+.navbar{
+  display: grid;
+  grid-column: auto auto;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  background-color: rgb(7, 24, 217);
+}
+.leftNavbar{
+  display: flex;
+  gap: 20px;
+  height: 30px;
+  align-items: center;
+}
+.rightNavbar{
+  gap: 20px;
+  height: 30px;
+  align-items: center;
+  padding-right: 20px;
+}
+.btnNavbar{
+  padding: 5px;
+  background-color: rgb(5, 103, 241);
+  color: white;
+  font-weight: 700;
+  font-size: large;
+  border: 2px groove;
+}
+.title{
+  padding-left: 10px;
+  color:bisque;
+}
+.titleFooter{
+  background-color: rgb(7, 24, 217);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  text-align: center;
+}
+.btnNavbarContainer{
+  position: relative;
+}
+.btnNavbarRight{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px;
+  background-color: rgb(5, 103, 241);
+  color: white;
+  font-weight: 700;
+  font-size: large;
+  border: 2px groove;
+}
