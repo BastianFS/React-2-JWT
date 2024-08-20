@@ -1,4 +1,4 @@
-function CartPizza (props) { 
+function CardPizza (props) { 
 
     return(
         <>
@@ -13,4 +13,4 @@ function CartPizza (props) {
     )
 }
 
-export default CartPizza
+export default CardPizza
