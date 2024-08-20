@@ -116,3 +116,73 @@ body{
   font-size: large;
   border: 2px groove;
 }
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: lightgray;
+  border: 3px solid black;
+  border-radius: 3%;
+}
+.cardGroup{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
+  list-style: none;
+  gap: 20px;
+}
+.cardTitle{
+  color: blue;
+  padding: 20px;
+  text-align: center;
+}
+.cardDesc{
+  padding: 20px;
+}
+.cardIng{
+  list-style: circle;
+  padding: 10px;
+  padding-left: 50px;
+
+}
+.cardPrice{
+  text-align: center;
+  color: blue;
+  padding: 20px;
+  font-weight: 700;
+}
+.cardImg{
+  width: 75%;
+  padding: 20px;
+}
+.cardImgCont{
+  display: flex;
+  justify-content: center;
+}
+.cardQty{
+  text-align: center;
+  padding: 20px;
+}
+.cardQtyGroup{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.cardBtn{
+  padding: 10px;
+  height: fit-content;
+}
+.totalNavbar{
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+}
+.totalh1{
+  color: blue;
+  text-align: center;
+}
