@@ -186,3 +186,36 @@ body{
   color: blue;
   text-align: center;
 }
+.cardList{
+  padding-left: 50px;
+  font-style: italic;
+}
+.ing{
+  padding: 20px;
+}
+.pizzaTitle{
+  text-align: center;
+  padding: 20px;
+  color: blue;
+}
+.pizzaImgCont{
+display: flex;
+justify-content: center;
+}
+.pizzaImg{
+  border-radius: 3%;
+}
+.pizzaDesc{
+  padding: 20px;
+}
+.pizzaLi{
+  padding: 10px;
+  padding-left: 70px;
+}
+.pizzaPrice{
+  text-align: center;
+  color:blue ;
+  padding: 20px;
+  font-size: larger;
+  font-style: italic;
+}
