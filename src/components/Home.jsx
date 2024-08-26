@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 import { useEffect, useState } from "react"
 import CardPizza from "./CardPizza";
@@ -32,21 +31,4 @@ function Home(){
         </>
     )
 }
-=======
-import { arrPizzas } from '../pizzas.js'
-import CardPizza from './CardPizza'
-
-function Home() {
-    
-    return(
-        <>
-            <ul className='cardGroup'>
-               {arrPizzas.map((pizza) => <li key={pizza.id}>{CardPizza(pizza)}</li>)} 
-            </ul>
-           
-        </>
-    )
-}
-
->>>>>>> main
 export default Home

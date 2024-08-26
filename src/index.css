@@ -11,6 +11,7 @@
 body{
   font-family: "Montserrat";
   font-weight: 500;
+  background-color: #eae2b7;
 }
 .bigForm{
   display: grid;
@@ -69,13 +70,14 @@ body{
   padding-top: 20px;
   padding-bottom: 5px;
   padding-left: 10px;
-  background-color: rgb(7, 24, 217);
+  background-color: #003049;  
 }
 .leftNavbar{
   display: flex;
   gap: 20px;
   height: 30px;
   align-items: center;
+  padding-top: 10px;
 }
 .rightNavbar{
   gap: 20px;
@@ -85,22 +87,23 @@ body{
 }
 .btnNavbar{
   padding: 5px;
-  background-color: rgb(5, 103, 241);
+  background-color: #d62828;
   color: white;
   font-weight: 700;
   font-size: large;
-  border: 2px groove;
+  border: 2px groove 0,0,0,0.2;
 }
 .title{
   padding-left: 10px;
-  color:bisque;
+  color: #fcbf49;
 }
 .titleFooter{
-  background-color: rgb(7, 24, 217);
+  background-color: #003049;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: white;
+  color: #eae2b7;
   text-align: center;
+  font-size: large;
 }
 .btnNavbarContainer{
   position: relative;
@@ -110,21 +113,27 @@ body{
   right: 0;
   bottom: 0;
   padding: 5px;
-  background-color: rgb(5, 103, 241);
+  background-color: #f77f00;
   color: white;
   font-weight: 700;
   font-size: large;
-  border: 2px groove;
+  border: 2px groove 0,0,0,0.2;
 }
 
 .card{
   display: flex;
   flex-direction: column;
   width: 300px;
-  background-color: lightgray;
+  background-color: #003049;
   border: 3px solid black;
   border-radius: 3%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  transition: 0.3s; 
 }
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+} 
+
 .cardGroup{
   padding: 20px;
   display: grid;
@@ -134,22 +143,23 @@ body{
   gap: 20px;
 }
 .cardTitle{
-  color: blue;
+  color: #d62828;
   padding: 20px;
   text-align: center;
 }
-.cardDesc{
-  padding: 20px;
-}
+
 .cardIng{
   list-style: circle;
   padding: 10px;
   padding-left: 50px;
 
 }
+.ing{
+  color:#eae2b7
+}
 .cardPrice{
   text-align: center;
-  color: blue;
+  color: #f77f00;;
   padding: 20px;
   font-weight: 700;
 }
@@ -185,7 +195,6 @@ body{
 .totalh1{
   color: blue;
   text-align: center;
-<<<<<<< HEAD
 }
 .cardList{
   padding-left: 50px;
@@ -219,6 +228,4 @@ justify-content: center;
   padding: 20px;
   font-size: larger;
   font-style: italic;
-=======
->>>>>>> main
 }
