@@ -185,6 +185,7 @@ body{
 .totalh1{
   color: blue;
   text-align: center;
+<<<<<<< HEAD
 }
 .cardList{
   padding-left: 50px;
@@ -218,4 +219,6 @@ justify-content: center;
   padding: 20px;
   font-size: larger;
   font-style: italic;
+=======
+>>>>>>> main
 }

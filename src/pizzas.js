@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [
+=======
+export const arrPizzas = [
+>>>>>>> main
   {
     desc: "La pizza napolitana, de masa tierna y delgada pero bordes altos, es la versión propia de la cocina napolitana de la pizza redonda. El término pizza napoletana, por su importancia histórica o regional, se emplea en algunas zonas como sinónimo de pizza tonda.",
     id: "P001",
@@ -30,6 +34,10 @@
     ingredients: ["mozzarella", "salame", "aceitunas", "champiñones"],
     name: "cuatro estaciones",
     price: 9590,
+<<<<<<< HEAD
+=======
+    qty: 2,
+>>>>>>> main
   },
   {
     desc: "La pizza es una preparación culinaria que consiste en un pan plano, habitualmente de forma circular, elaborado con harina de trigo, levadura, agua y sal (a veces aceite de oliva) que comúnmente se cubre con salsa de tomate, queso y otros muchos ingredientes, y que se hornea a alta temperatura, tradicionalmente en un horno de leña.",
@@ -47,4 +55,8 @@
     name: "pollo picante",
     price: 8500,
   },
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> main

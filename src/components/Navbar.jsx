@@ -1,3 +1,4 @@
+
 const Navbar = () => {
     
     const total = 2500;
