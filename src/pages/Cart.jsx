@@ -1,14 +1,14 @@
 import { useState } from "react" 
-import { arrPizzas } from "../pizzas.js"
+//import { arrPizzas } from "../pizzas.js"
 
 function Cart() {
 
-    const [qty, setQty] = useState(Array(arrPizzas.length).fill(1));
+    //const [qty, setQty] = useState(Array(arrPizzas.length).fill(1));
 
-    const [total, setTotal] = useState(0);
+    //const [total, setTotal] = useState(0);
     
    
-    const agregarQty = (index) =>{
+    /*const agregarQty = (index) =>{
         let newQty = [...qty];
         newQty[index] += 1;
         setQty(newQty);
@@ -47,10 +47,7 @@ function Cart() {
         const numTotal = arr1.reduce((acc,cV ) => acc + cV);
         setTotal(numTotal);
     }
-      
-    return(
-        <>
-            <div className="totalNavbar">
+          <div className="totalNavbar">
                 <h1 className="totalh1">
                     Total: ${total}
                 </h1>
@@ -67,6 +64,9 @@ function Cart() {
                 />: "")
             )}  
             </div>
+    */
+    return(
+        <>
         </>
     )
 }
