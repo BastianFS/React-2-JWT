@@ -1,5 +1,5 @@
 
-const Navbar = () => {
+const Navigation = () => {
     
     const total = 2500;
 
@@ -31,4 +31,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar
+export default Navigation
