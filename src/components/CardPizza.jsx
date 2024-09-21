@@ -1,3 +1,5 @@
+import { Button } from "react-bootstrap";
+
 function CardPizza(props) {
   
   return (
@@ -14,6 +16,19 @@ function CardPizza(props) {
           ))}
         </ul>
         <p className="cardPrice">${props.price}</p>
+        <Button onClick={() => {
+                            setPriceTotal(priceTotal - pizza.price);
+                            setItemQty(itemQty - 1);
+                        }}>
+                        -
+                        </Button>
+                        <p className="cardQty">{itemQty}</p>
+                        <Button onClick={() => {
+                            setPriceTotal(priceTotal + pizza.price);
+                            setItemQty(itemQty - 1);
+                        }}> 
+                        +
+                        </Button>
       </div>
     </>
   );

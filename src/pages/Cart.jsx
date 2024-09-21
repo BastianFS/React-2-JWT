@@ -1,74 +1,64 @@
-import { useState } from "react" 
-//import { arrPizzas } from "../pizzas.js"
 
-function Cart() {
+import { useContext } from "react"
+import { CartContext } from "../context/CartContext";
+import { Button, Card } from "react-bootstrap";
+import { PizzaQtyContext } from "../context/PizzaQtyContext";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer"
+import { PizzaContext } from "../context/PizzaContext";
 
-    //const [qty, setQty] = useState(Array(arrPizzas.length).fill(1));
 
-    //const [total, setTotal] = useState(0);
-    
-   
-    /*const agregarQty = (index) =>{
-        let newQty = [...qty];
-        newQty[index] += 1;
-        setQty(newQty);
-        actTotal();
-    }
+function Cart(){
 
-    const quitarQty = (index) =>{
-        let newQty = [...qty];
-        if(newQty[index] > 0){
-            newQty[index] -= 1;
-            setQty(newQty);
-        }
-        actTotal(); 
-    }
 
-    const PizzaCard = ({ pizza, quantity, onAdd, onSubtract }) => {
+    const {priceTotal , setPriceTotal} = useContext(CartContext)
+    const {pizzaQty , setPizzaQty} = useContext(PizzaQtyContext)
+    const {pizza} = useContext(PizzaContext)
 
-        return (
-          <div className="card">
-            <h3 className="cardTitle">{pizza.name}</h3>
-            <div className="cardImgCont">   
-                <img src={pizza.img} alt={pizza.name} className="cardImg" />
-            </div>
-            <p className="cardPrice">${pizza.price}</p>
-            <div className="cardQtyGroup">
-              <button onClick={onSubtract} className="cardBtn">-</button>
-              <span className="cardQty">{quantity}</span>
-              <button onClick={onAdd} className="cardBtn">+</button>
-            </div>
-          </div>
-        );
-      };
+    const handleDecrement = (index) =>{
+        const newQtyArray = [...pizzaQty];
+        if(newQtyArray[index] > 0){
+        newQtyArray[index] -= 1;
+        setPizzaQty(newQtyArray);
+        setPriceTotal(priceTotal - pizza[index].price);
+        }}  
 
-    function actTotal(){
-        const arr1 = arrPizzas.map((pizza,index) => qty[index] * pizza.price);
-        const numTotal = arr1.reduce((acc,cV ) => acc + cV);
-        setTotal(numTotal);
-    }
-          <div className="totalNavbar">
-                <h1 className="totalh1">
-                    Total: ${total}
-                </h1>
-                <button className="cardBtn">Pagar</button>
-            </div>
-            <div className="cardGroup">
-                {arrPizzas.map((pizza, index) => (qty[index] > 0 ?
-                <PizzaCard
-                    key={index}
-                    pizza={pizza}
-                    quantity={qty[index]}
-                    onAdd={() => agregarQty(index)}
-                    onSubtract={() => quitarQty(index)}
-                />: "")
-            )}  
-            </div>
-    */
+    const handleIncrement = (index) =>{
+        const newQtyArray = [...pizzaQty];
+        newQtyArray[index] += 1;
+        setPizzaQty(newQtyArray);
+        setPriceTotal(priceTotal + pizza[index].price);
+        }  
     return(
-        <>
-        </>
-    )
+          <>
+            <Navigation/>
+            {pizza.map((pizza, index) =>
+            (pizzaQty[index] === 0 ? <></>:
+              <div className="cardGroup"> 
+                      <Card key={pizza.id} style={{ width: '18rem' }}>
+                      <Card.Img variant="top" src={pizza.img} />
+                      <Card.Body>
+                      <Card.Title className="text-white">{pizza.name}</Card.Title>
+                      <Card.Text>
+                      <p className="cardPrice">${pizza.price}</p>
+                      </Card.Text>
+                      <div className="d-flex justify-content-center align-items-center">
+                          <Button className="ps-4 pe-4 p-3 text-white" onClick={() => handleDecrement(index)}>                            
+                              -
+                          </Button>
+                          <p className="align-items-center text-white p-4">{pizzaQty[index]}</p>
+                          <Button className="ps-4 pe-4 p-3 text-white align-items-center" onClick={() => handleIncrement(index)}>
+                              +
+                          </Button>
+                      </div>
+                      </Card.Body>
+                      </Card>
+                  </div>
+            ))}
+                <h1 className="p-4 text-center">Precio Total: {priceTotal} </h1>
+                <Footer/>
+              </>
+    );
 }
 
 export default Cart

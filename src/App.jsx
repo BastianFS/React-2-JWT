@@ -9,12 +9,17 @@ import Cart from './pages/Cart.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Footer from './components/Footer.jsx';
 import Navigation from './components/Navigation.jsx';
+import CartProvider from './context/CartContext';
+import PizzaQtyProvider from './context/PizzaQtyContext';
+import PizzaProvider from './context/PizzaContext';
 
 function App() {
 
   return (
     <>
-      <Navigation/>
+      <PizzaProvider>
+      <CartProvider>
+      <PizzaQtyProvider> 
       <Routes>
         <Route path='/' element={<Home/>} errorElement={<NotFound/>}/>
         <Route path='/register' element={<Register/>}/>
@@ -24,7 +29,9 @@ function App() {
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/404' element={<NotFound/>}/>      
       </Routes>
-      <Footer/>
+      </PizzaQtyProvider>
+      </CartProvider>   
+      </PizzaProvider>   
     </>
   );
 };
