@@ -1,33 +1,50 @@
-import { useState, useEffect } from "react";
+
+import { useContext } from "react"
+import { Button, Card, Container } from "react-bootstrap"; 
+import { PizzaContext } from "../context/PizzaContext"; 
+import Navigation from '../components/Navigation.jsx';
+import  Footer from '../components/Footer.jsx';
+import { useParams, useNavigate } from "react-router-dom";
+
 
 function Pizza(){
 
-    const [pizza, setPizza] = useState([])
+    const {pizza} = useContext(PizzaContext);
 
-    useEffect(() => {getData();}, []);
+    const {id} = useParams();
+    
+    const pizzaId = pizza.find(pizza => pizza.id == id)
 
-    const url = "http://localhost:5000/api/pizzas/p001";
-    const getData = async () => {
-        const response = await fetch(url);
-        const data = await response.json();
-        setPizza(data)};
+    const navigate = useNavigate();
+
+    const handleClick = () => {navigate("/")}
 
     return(
         <>
-            <div>
-                <h1 className="pizzaTitle">{pizza.name}</h1>
-                <div className="pizzaImgCont">
-                    <img className="pizzaImg" src={pizza.img} alt={pizza.name}/>
-                </div>
-                <p className="pizzaDesc">{pizza.desc}</p>
-                <p className="pizzaDesc">Ingredientes</p>
-                <ul className="pizzaList">
-                    {pizza.ingredients?.map((ing, index) => (
-                    <li className="pizzaLi" key={index}>{ing}</li>))}
-                </ul>
-                <p className="pizzaPrice">${pizza.price}</p>
-            </div>
+        <Navigation/>
+        <Container className ="d-flex justify-content-center p-4">
+            <Card>
+                <Card.Img variant="top" src={pizzaId.img}/>
+                <Card.Body>
+                    <Card.Title className="text-white">{pizzaId.name}</Card.Title>
+                    <Card.Text>
+                        <h4 className="text-white">Ingredientes:</h4>
+                        <ul className="cardList">
+                        {pizzaId.ingredients.map((ing, index) => (
+                            <li key={index} className="ing">{ing}</li>
+                        ))}
+                        </ul>
+                        <p className="cardPrice">${pizzaId.price}</p>
+                    </Card.Text>
+                    <Button onClick={handleClick}>
+                        Volver
+                    </Button>
+                </Card.Body>
+            </Card>
+        </Container>
+        <Footer/>
         </>
-    )
+    );
 }
+
 export default Pizza

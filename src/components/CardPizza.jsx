@@ -7,7 +7,9 @@ function CardPizza(props) {
       <div className="card">
         <h2 className="cardTitle">{props.name}</h2>
         <div className="cardImgCont">
-          <img src={props.img} className="cardImg" />
+          <Link to="/pizzaId">
+            <img src={props.img} className="cardImg" />
+          </Link>
         </div>
         <h4 className="ing">Ingredientes:</h4>
         <ul className="cardList">

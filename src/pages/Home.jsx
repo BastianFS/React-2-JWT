@@ -1,11 +1,12 @@
 
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../context/CartContext";
 import { Button, Card } from "react-bootstrap";
 import { PizzaQtyContext } from "../context/PizzaQtyContext";
 import { PizzaContext } from "../context/PizzaContext"; 
 import Navigation from '../components/Navigation.jsx';
 import  Footer from '../components/Footer.jsx';
+import { useNavigate } from 'react-router-dom'
 
 
 function Home(){
@@ -38,6 +39,10 @@ function Home(){
         setPriceTotal(priceTotal - pizza[index].price);
         }};
 
+    const navigate = useNavigate();
+
+    const handleClick = (id) => {navigate("/pizza/" + id)};
+
     return(
         <>
         <Navigation/>
@@ -45,7 +50,7 @@ function Home(){
                 {pizza.map((pizza, index) => 
                     (<>
                     <Card key={pizza.id} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={pizza.img} />
+                    <Card.Img variant="top" src={pizza.img}/>
                     <Card.Body>
                     <Card.Title className="text-white">{pizza.name}</Card.Title>
                     <Card.Text>
@@ -66,6 +71,9 @@ function Home(){
                             +
                             </Button>
                         </div>
+                    <Button onClick={() => {handleClick(pizza.id)}}>
+                      Ver Detalle
+                    </Button>
                     </Card.Body>
                     </Card>
                     </>))}

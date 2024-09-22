@@ -1,11 +1,12 @@
 
 import { useContext } from "react"
 import { CartContext } from "../context/CartContext";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Container } from "react-bootstrap";
 import { PizzaQtyContext } from "../context/PizzaQtyContext";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer"
 import { PizzaContext } from "../context/PizzaContext";
+import { TokenContext } from "../context/TokenContext";
 
 
 function Cart(){
@@ -14,6 +15,7 @@ function Cart(){
     const {priceTotal , setPriceTotal} = useContext(CartContext)
     const {pizzaQty , setPizzaQty} = useContext(PizzaQtyContext)
     const {pizza} = useContext(PizzaContext)
+    const {token} = useContext(TokenContext)
 
     const handleDecrement = (index) =>{
         const newQtyArray = [...pizzaQty];
@@ -56,6 +58,7 @@ function Cart(){
                   </div>
             ))}
                 <h1 className="p-4 text-center">Precio Total: {priceTotal} </h1>
+                {token ? <Container className="d-flex justify-content-center"><Button className="p-4 m-4">Pagar</Button></Container>: null}
                 <Footer/>
               </>
     );
