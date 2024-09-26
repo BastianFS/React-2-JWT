@@ -35,7 +35,6 @@ const Login = () => {
     }
     else{
         navigate("/")
-        window.location.reaload()
     }
   };
 

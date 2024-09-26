@@ -11,9 +11,8 @@ import { useNavigate } from 'react-router-dom'
 
 function Home(){
 
-
-    const {priceTotal , setPriceTotal} = useContext(CartContext)
-    const {pizzaQty , setPizzaQty} = useContext(PizzaQtyContext)
+    const {priceTotal , setPriceTotal} = useContext(CartContext);
+    const {pizzaQty , setPizzaQty} = useContext(PizzaQtyContext);
 
     const {pizza} = useContext(PizzaContext);
 
@@ -42,6 +41,7 @@ function Home(){
     const navigate = useNavigate();
 
     const handleClick = (id) => {navigate("/pizza/" + id)};
+
 
     return(
         <>

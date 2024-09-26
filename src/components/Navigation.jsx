@@ -14,34 +14,30 @@ const Navigation = () => {
     const { token, setToken } = useContext(UserContext)
     const navigate = useNavigate()
 
-    const goToHome = () => {
-        navigate ("/")
-    }
-
     const handleLogout = () => {
-        setToken(false)
-        goToHome()
+        setToken("")
+        navigate("/")
         alert("Cierre de sesión exitoso")
+        console.log(token)
     }
     
     return(
         <>
             <Navbar className="bg-primary sticky-top">
                     <Container>
-                            <Navbar.Brand href="/" className="text-white p-3">¡Pizzeria Mamma Mia!</Navbar.Brand>
+                            <Link href="/" className="text-white p-3">¡Pizzeria Mamma Mia!</Link>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto">
                                     <Link to="/" className="text-white p-3 text-decoration-none">Home</Link>
-                                    <Link to="/profile" className="text-white p-3 text-decoration-none">Profile</Link>
-                                    {token != false ?<>
+                                    {token?(<>
                                                         <Link to="/profile" className="text-white p-3 text-decoration-none">Profile</Link> 
                                                         <Link className="text-decoration-none text-white p-3" onClick={handleLogout}>Logout</Link>
-                                                    </>:
+                                                    </>):(
                                     <>
                                     <Link to="/register" className="text-white p-3 text-decoration-none">Register</Link>
                                     <Link to="/login" className="text-white p-3 text-decoration-none">Login</Link>
-                                    </>
+                                    </>)
                                     }
                                 </Nav>
                             </Navbar.Collapse>
