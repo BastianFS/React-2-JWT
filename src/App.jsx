@@ -10,9 +10,9 @@ import NotFound from './pages/NotFound.jsx';
 import CartProvider from './context/CartContext';
 import PizzaQtyProvider from './context/PizzaQtyContext';
 import PizzaProvider from './context/PizzaContext';
-import TokenProvider from './context/TokenContext.jsx';
+import UserProvider from './context/UserContext.jsx';
 import { useContext } from 'react';
-import { TokenContext } from './context/TokenContext.jsx';
+import { UserContext } from './context/UserContext.jsx';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <PizzaProvider>
       <CartProvider>
       <PizzaQtyProvider> 
-      <TokenProvider>
+      <UserProvider>
       <Routes>
         <Route path='/' element={<Home/>} errorElement={<NotFound/>}/>
         <Route path='/register' element={<Register/>}/>
@@ -30,7 +30,7 @@ function App() {
         <Route path='/profile' element={<Private><Profile/></Private>}/>
         <Route path='/404' element={<NotFound/>}/>      
       </Routes>
-      </TokenProvider>
+      </UserProvider>
       </PizzaQtyProvider>
       </CartProvider>   
       </PizzaProvider>   
@@ -39,7 +39,7 @@ function App() {
 };
 
 const Private = ({children})=> {
-  const {token} = useContext(TokenContext);
+  const {token} = useContext(UserContext);
   return token ? children : <Navigate to= "/login"/>;
 }
 

@@ -1,25 +1,33 @@
 import { useState } from "react";
+import useInput from "../hooks/useInput";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
-    const [email, setEmail] = useState("");
-    const [error, setError] = useState(false)
-    const [pass, setPass] = useState("")
-    const [pass2, setPass2] = useState("")
+    const navigate = useNavigate();
+
+    const email = useInput("");
+    const [error, setError] = useState(false);
+    const password = useInput("");
+    const password2 = useInput("");
+
+    const emailValue = email.value;
+    const passwordValue = password.value;
+    const password2Value = password2.value;
 
     const validarDatos = (e) => {
         e.preventDefault();
 
-        if(!email.trim() || !pass.trim() || pass.length < 6 || pass != pass2)
+        if(!emailValue.trim() || !passwordValue.trim() || passwordValue.length < 6 || passwordValue != password2Value)
         {
             setError(true);
             return;
         }
         setError(false);
-        setEmail("");
-        setPass("");
-        setPass2("");
         alert("Ingresado correctamente");
+        navigate("/")
+        window.location.reaload()
+
     }
 
     return(
@@ -28,15 +36,15 @@ const Register = () => {
                 <form onSubmit={validarDatos} className="form">
                     <div className="formGroup">
                         <label>Email</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="email" placeholder="Email"{...email}/>
                     </div>
                     <div className="formGroup">
                         <label>Contraseña</label>
-                        <input type="password" value={pass} onChange={(e) => setPass(e.target.value)}/>
+                        <input type="password" placeholder="Password" {...password}/>
                     </div>
                     <div className="formGroup">
                         <label>Confirmar contraseña</label>
-                        <input type="password" value={pass2} onChange={(e) => setPass2(e.target.value)}/>
+                        <input type="password" placeholder="Password2" {...password2}/>
                     </div>
                     <div className="btnContainer">
                         <button className="btnEnviar" type="submit">

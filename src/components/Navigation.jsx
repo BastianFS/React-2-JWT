@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { TokenContext } from "../context/TokenContext";
+import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const Navigation = () => {
 
     const { priceTotal } = useContext(CartContext)
-    const { token, setToken } = useContext(TokenContext)
+    const { token, setToken } = useContext(UserContext)
     const navigate = useNavigate()
 
     const goToHome = () => {

@@ -6,7 +6,7 @@ import { PizzaQtyContext } from "../context/PizzaQtyContext";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer"
 import { PizzaContext } from "../context/PizzaContext";
-import { TokenContext } from "../context/TokenContext";
+import { UserContext } from "../context/UserContext";
 
 
 function Cart(){
@@ -15,7 +15,7 @@ function Cart(){
     const {priceTotal , setPriceTotal} = useContext(CartContext)
     const {pizzaQty , setPizzaQty} = useContext(PizzaQtyContext)
     const {pizza} = useContext(PizzaContext)
-    const {token} = useContext(TokenContext)
+    const {token} = useContext(UserContext)
 
     const handleDecrement = (index) =>{
         const newQtyArray = [...pizzaQty];
