@@ -72,6 +72,17 @@ const checkOut = (tokenMe) => {
     checkOut(tokenMe);
     alert(JSON.stringify(carrito))
   }
+  const loadCart = () => {
+    pizza.map((index) => {
+    const newQtyArray = [...pizzaQty];
+    updateCart(index, newQtyArray[index]);
+   });
+  };
+ useEffect(() => {
+  loadCart()
+}
+,  []);
+
   return (
     <>
       <Navigation />
