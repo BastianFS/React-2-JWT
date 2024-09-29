@@ -1,20 +1,42 @@
-import { Container } from "react-bootstrap";
-import Button from 'react-bootstrap/Button';
+import { Container, Button } from "react-bootstrap";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+function Profile() {
+  const [user, setUser] = useState([]);
+  const { token, setToken } = useContext(UserContext);
+  const tokenMe = token.token;
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-    const handleClick = () => {navigate("/")}
-    return(
-        <>
-            <Container className="text-center p-4">
-                <h1 className="p-3"><span className="fw-bold">Usuario: </span>User001</h1>
-                <h3 className="p-3"><span className="fw-bold">Mail: </span> aether@ru.org</h3>
-                <Button onClick={handleClick} className="p-2"><a href="/" className="text-white text-decoration-none">Volver</a></Button>
-            </Container>
-        </>
-    );
-};
+  const handleLogout = () => {
+    setToken("");
+    navigate("/");
+    alert("Cierre de sesión exitoso");
+  };
 
-export default Profile
+  useEffect(() => {
+    if (tokenMe) {
+      fetch("http://localhost:5000/api/auth/me", {
+        headers: {
+          Authorization: `Bearer ${tokenMe}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => setUser(data));
+    }
+  }, []);
+
+  return (
+    <>
+      <Container className="p-6 d-flex flex-column justify-content-center">
+        <h2 className="text-center p-4">Email: {user.email}</h2>
+        <Button className="p-4" onClick={handleLogout}>
+          Cerrar sesión
+        </Button>
+      </Container>
+    </>
+  );
+}
+
+export default Profile;

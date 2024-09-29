@@ -36,15 +36,15 @@ const Register = () => {
                 <form onSubmit={validarDatos} className="form">
                     <div className="formGroup">
                         <label>Email</label>
-                        <input type="email" placeholder="Email"{...email}/>
+                        <input type="email" {...email}/>
                     </div>
                     <div className="formGroup">
                         <label>Contraseña</label>
-                        <input type="password" placeholder="Password" {...password}/>
+                        <input type="password" {...password}/>
                     </div>
                     <div className="formGroup">
                         <label>Confirmar contraseña</label>
-                        <input type="password" placeholder="Password2" {...password2}/>
+                        <input type="password" {...password2}/>
                     </div>
                     <div className="btnContainer">
                         <button className="btnEnviar" type="submit">

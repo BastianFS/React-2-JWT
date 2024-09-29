@@ -42,7 +42,6 @@ function Home(){
 
     const handleClick = (id) => {navigate("/pizza/" + id)};
 
-
     return(
         <>
         <Navigation/>
